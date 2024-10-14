@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission with Validation</title>
+</head>
+<body>
+    <h1 style="text-align: center; color: navy;">Submit Your Details</h1>
+    <form action="/submit-form" method="POST" onsubmit="return validateForm()" style="max-width: 400px; margin: 0 auto;">
+        <label for="name" style="font-weight: bold;">Name:</label><br>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: 8px; margin: 5px 0;"><br>
+
+        <label for="email" style="font-weight: bold;">Email:</label><br>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 8px; margin: 5px 0;"><br>
+
+        <label for="age" style="font-weight: bold;">Age:</label><br>
+        <input type="number" id="age" name="age" min="18" required style="width: 100%; padding: 8px; margin: 5px 0;"><br>
+
+        <label for="password" style="font-weight: bold;">Password:</label><br>
+        <input type="password" id="password" name="password" required style="width: 100%; padding: 8px; margin: 5px 0;"><br><br>
+
+        <input type="submit" value="Submit" style="background-color: green; color: white; padding: 10px; border: none; cursor: pointer;">
+    </form>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let age = document.getElementById('age').value;
+            let password = document.getElementById('password').value;
+
+            if (!name || !email || !age || !password) {
+                alert('All fields are required!');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
